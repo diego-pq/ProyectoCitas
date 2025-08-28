@@ -3,14 +3,14 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-app = Flask(__name__)
+app = Flask(__name__ , )
 app.secret_key = 'clave-secreta'  
 
 
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
-EMAIL_FROM = 'instalacionesyeminus@gmail.com'
-EMAIL_PASSWORD = 'mfjsthdtvacefkft'  
+EMAIL_FROM = 'citareservar@gmail.com'
+EMAIL_PASSWORD = 'vdwryhwagulbhvak'  
 
 @app.route('/', methods=['GET', 'POST'])
 def form():
@@ -21,9 +21,12 @@ def form():
         tipo_una = request.form['tipo_una']
         telefono = request.form['telefono']
         date = request.form ['date']
-        hora = request.form ['date']
+        hora = request.form ['hora']
 
-        asunto = "Nuevo formulario enviado"
+
+        # Cuerpo del correo para enviar la cita por  email
+        
+        asunto = "📌Nueva Cita Agendada"
 
         try:
             
