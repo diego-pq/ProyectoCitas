@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Agendamiento De Citas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h1>Agendamiento De Citas</h1>
+
+        <form method="post">
+          <div class="form-group-google">
+            <input type="text" name="nombre" id="nombre" required />
+            <label for="nombre">Nombre completo<span class="required">*</span></label>
+          </div>
+
+          <div class="form-group-google">
+            <input type="email" name="email" id="email" required />
+            <label for="email">Email📧 <span class="required">*</span></label>
+          </div>
+
+          <div class="form-group-google">
+            <input
+              type="tel"
+              name="telefono"
+              id="telefono"
+              pattern="3\d{9}"
+              maxlength="10"
+              required
+              oninvalid="this.setCustomValidity('Debe comenzar con 3 y tener 10 dígitos')"
+              oninput="this.setCustomValidity('')"
+            />
+            <label for="telefono">Número de teléfono: <span class="required">*</span></label>
+          </div>
+
+          <div class="form-group-google">
+            <select
+              id="menuUnas"
+              name="tipo_una"
+              onchange="mostrarPrecio()"
+              required
+            >
+              <option value="">Opción</option>
+              <option value="Tradicional">Tradicional - $30.000</option>
+              <option value="Acrilicas">Acrílicas - $40.000</option>
+              <option value="Gel">Gel - $35.000</option>
+              <option value="Semipermanente">Semipermanente - $28.000</option>
+              <option value="Decoracion">Decoración extra - $5.000</option>
+            </select>
+            <label for="tipo_una">Selecciona un servicio <span class="required">*</span></label>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group-google form-group">
+              <input type="date" id="fecha" name="fecha" required />
+              <label for="fecha">Fecha <span class="required">*</span></label>
+            </div>
+
+            <div class="form-group-google form-group">
+              <select id="hora" name="hora" required>
+                <option value="">Seleccione una hora</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+              </select>
+              <label for="hora">Seleccione hora <span class="required">*</span></label>
+            </div>
+          </div>
+
+          <div class="form-group-google">
+            <textarea name="notas" id="notas" rows="4"></textarea>
+            <label for="notas">Notas</label>
+          </div>
+
+          <button type="submit">Agendar cita</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>&copy; 2025 Diego Peña. Todos los derechos reservados.</footer>
+  </body>
+</html>
