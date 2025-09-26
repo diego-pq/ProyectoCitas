@@ -1,38 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='reserva_exitosa.css') }}"> -->
-   <link rel="stylesheet" href="/ProyectoCitas/static/reserva_exitosa.css">
-  <title>Success</title>
+  <link rel="stylesheet" href="../static/reserva_exitosa.css" />
+  <title>Reserva Exitosa</title>
 </head>
 <body>
-  <h1>Reserva Exitosa</h1>
-  <h4 id="mensaje">
-    Tu reserva ya fue aplicada, por favor revisa Google Calendar donde ya se encuentra la reserva.
-  </h4>
-  <a href="/ProyectoCitas/templates/form.html">Volver al inicio</a>
+  <main class="container">
+    <div class="card">
+      <h1>¡Reserva Exitosa!</h1>
+      <p id="mensaje" class="message">
+        Tu reserva ha sido confirmada exitosamente.
+        Si proporcionaste un correo electrónico, podrás visualizar la fecha y hora directamente en tu bandeja de entrada.
+      </p>
+      <a href="/ProyectoCitas/templates/form.html" class="btn">Volver al inicio</a>
+    </div>
+  </main>
 
-  <script>
-    // Función para obtener parámetros GET
-    function getQueryParams() {
-      const params = {};
-      window.location.search.substring(1).split('&').forEach(pair => {
-        if(pair) {
-          const [key, value] = pair.split('=');
-          params[decodeURIComponent(key)] = decodeURIComponent(value || '');
-        }
-      });
-      return params;
-    }
-
-    const params = getQueryParams();
-
-    if(params.nombre && params.fecha) {
-      document.getElementById('mensaje').textContent =
-        `Gracias ${params.nombre}, tu agenda está reservada para el día ${params.fecha}. Por favor revisa Google Calendar.`;
-    }
-  </script>
+<script src="/ProyectoCitas/js/reserva_exitosa.js"></script>
 </body>
 </html>
