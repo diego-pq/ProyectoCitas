@@ -1,2 +1,2 @@
 # ProyectoCitas
-Creacion de Citas online
+Creacion de Citas y reservas online
